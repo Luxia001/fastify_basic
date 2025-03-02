@@ -9,4 +9,9 @@ declare module "fastify" {
     jwt: any;
     authenticate: any;
   }
+
+  export interface FastifyRequest {
+    file: any;
+    files: any[];
+  }
 }

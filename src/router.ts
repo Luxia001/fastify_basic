@@ -3,12 +3,14 @@ import indexRoute from "./controllers/index";
 import demoRoute from "./controllers/demo";
 import schemaRoute from "./controllers/schema";
 import dbRoute from "./controllers/db";
+import uploadRoute from "./controllers/upload";
 
 export default async function router(fastify: FastifyInstance) {
   fastify.register(indexRoute, { prefix: "/" });
   fastify.register(demoRoute, { prefix: "/demo" });
   fastify.register(schemaRoute, { prefix: "/schema" });
   fastify.register(dbRoute, { prefix: "/db" });
+  fastify.register(uploadRoute, { prefix: "/upload" });
   fastify.setErrorHandler(
     (error, request: FastifyRequest, reply: FastifyReply) => {
       console.error(error);
