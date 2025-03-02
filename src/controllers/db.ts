@@ -90,7 +90,28 @@ export default async function dbRoute(fastify: FastifyInstance) {
       if (!isPasswordMatch) {
         return { data: "password not match" };
       }
-      return { data: "login success" };
+      const token = fastify.jwt.sign({
+        id: rows[0].id,
+        fristName: rows[0].frist_name,
+        lastName: rows[0].last_name,
+      });
+      return { data: "login success", token: token };
+    }
+  );
+
+  fastify.get(
+    "/getUser/:id",
+    {
+      preValidation: [fastify.authenticate],
+    },
+    async (request: FastifyRequest, reply: FastifyReply) => {
+      const { id } = request.params as any;
+      const connection = await fastify.mysql.fastifyBasic.getConnection();
+      const [rows] = await connection.query(
+        "SELECT * FROM users WHERE id = ?",
+        [id]
+      );
+      return { data: rows[0] };
     }
   );
 
