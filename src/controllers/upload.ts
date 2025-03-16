@@ -129,4 +129,50 @@ export default async function uploadRoute(fastify: FastifyInstance) {
       reply.send(fileData);
     }
   );
+
+  fastify.delete(
+    "/file/:id",
+    async (request: FastifyRequest, reply: FastifyReply) => {
+      const { id } = request.params as { id: string };
+      const connection = await fastify.mysql.fastifyBasic.getConnection();
+
+      try {
+        // Get file info from database
+        const [files] = await connection.query(
+          "SELECT file_name FROM files WHERE file_id = ?",
+          [id]
+        );
+
+        if (!files || (files as any[]).length === 0) {
+          return reply.status(404).send({
+            message: "File not found",
+          });
+        }
+
+        const fileName = (files as any[])[0].file_name;
+        const filePath = path.join("uploads/", fileName);
+
+        // Delete file from filesystem
+        if (fs.existsSync(filePath)) {
+          fs.unlinkSync(filePath);
+        }
+
+        // Delete record from database
+        await connection.query("DELETE FROM files WHERE file_id = ?", [id]);
+
+        return reply.send({
+          message: "File deleted successfully",
+          id: id,
+          fileName: fileName,
+        });
+      } catch (error) {
+        return reply.status(500).send({
+          message: "Error deleting file",
+          error: error,
+        });
+      } finally {
+        connection.release();
+      }
+    }
+  );
 }

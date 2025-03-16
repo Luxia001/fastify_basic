@@ -11,9 +11,9 @@ export default fp(async (fastify) => {
     connectionString: `mysql://root:12345678@localhost:3306/fastify_basic`,
   });
 
-  fastify.register(fastifyMysql, {
-    name: "imNight",
-    promise: true,
-    connectionString: `mysql://root:12345678@localhost:3306/im_night`,
-  });
+  // fastify.register(fastifyMysql, {
+  //   name: "imNight",
+  //   promise: true,
+  //   connectionString: `mysql://root:12345678@localhost:3306/im_night`,
+  // });
 });
