@@ -24,10 +24,12 @@
     "fastify-multer": "^2.0.3",
     "fs-extra": "^11.3.0",
     "mysql2": "^3.12.0",
-    "nodemon": "^3.1.9"
+    "nodemon": "^3.1.9",
+    "ws": "^8.18.1"
   },
   "devDependencies": {
     "@types/node": "^22.13.5",
+    "@types/ws": "^8.18.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.3"
   }

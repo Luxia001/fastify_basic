@@ -8,6 +8,7 @@ declare module "fastify" {
     };
     jwt: any;
     authenticate: any;
+    ws: any;
   }
 
   export interface FastifyRequest {

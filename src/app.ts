@@ -23,5 +23,6 @@ app.register(multer.contentParser);
 app.register(jwt);
 app.register(fastifyFormbody);
 app.register(router);
+app.register(require("./plugins/ws"));
 
 export default app;
