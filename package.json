@@ -25,11 +25,22 @@
     "fs-extra": "^11.3.0",
     "mysql2": "^3.12.0",
     "nodemon": "^3.1.9",
+    "socket.io": "^4.8.1",
     "ws": "^8.18.1"
   },
   "devDependencies": {
     "@types/node": "^22.13.5",
     "@types/ws": "^8.18.0",
+    "gulp": "^5.0.0",
+    "gulp-clean": "^0.4.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^6.0.1",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "gulp-uglify": "^3.0.2",
+    "readable-stream": "^4.7.0",
+    "sass": "^1.86.3",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.3"
   }

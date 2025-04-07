@@ -1,22 +1,2 @@
-"use strict";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = router;
-const index_1 = __importDefault(require("./controllers/index"));
-function router(fastify) {
-    return __awaiter(this, void 0, void 0, function* () {
-        fastify.register(index_1.default, { prefix: "/" });
-    });
-}
+var __awaiter=this&&this.__awaiter||function(e,u,a,l){return new(a=a||Promise)(function(t,r){function o(e){try{n(l.next(e))}catch(e){r(e)}}function i(e){try{n(l.throw(e))}catch(e){r(e)}}function n(e){var r;e.done?t(e.value):((r=e.value)instanceof a?r:new a(function(e){e(r)})).then(o,i)}n((l=l.apply(e,u||[])).next())})},__importDefault=this&&this.__importDefault||function(e){return e&&e.__esModule?e:{default:e}};Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=router;let index_1=__importDefault(require("./controllers/index")),demo_1=__importDefault(require("./controllers/demo")),schema_1=__importDefault(require("./controllers/schema")),db_1=__importDefault(require("./controllers/db")),upload_1=__importDefault(require("./controllers/upload"));function router(e){return __awaiter(this,void 0,void 0,function*(){e.register(index_1.default,{prefix:"/"}),e.register(demo_1.default,{prefix:"/demo"}),e.register(schema_1.default,{prefix:"/schema"}),e.register(db_1.default,{prefix:"/db"}),e.register(upload_1.default,{prefix:"/upload"}),e.setErrorHandler((e,r,t)=>{console.error(e),t.status(500).send({error:"Internal Server Error",message:e.message})}),e.setNotFoundHandler((e,r)=>{r.status(404).send({error:"Not Found"})})})}
 //# sourceMappingURL=router.js.map

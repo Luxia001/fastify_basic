@@ -9,6 +9,7 @@ declare module "fastify" {
     jwt: any;
     authenticate: any;
     ws: any;
+    io: any;
   }
 
   export interface FastifyRequest {

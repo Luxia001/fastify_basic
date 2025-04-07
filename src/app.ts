@@ -24,5 +24,7 @@ app.register(jwt);
 app.register(fastifyFormbody);
 app.register(router);
 app.register(require("./plugins/ws"));
+app.register(require("./plugins/io"), {});
+
 
 export default app;

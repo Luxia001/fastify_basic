@@ -1,20 +1,2 @@
-"use strict";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = indexRoute;
-function indexRoute(fastify) {
-    return __awaiter(this, void 0, void 0, function* () {
-        fastify.get("/", (request, reply) => __awaiter(this, void 0, void 0, function* () {
-            return { data: "fastify ready" };
-        }));
-    });
-}
+var __awaiter=this&&this.__awaiter||function(t,r,u,c){return new(u=u||Promise)(function(n,e){function i(t){try{a(c.next(t))}catch(t){e(t)}}function o(t){try{a(c.throw(t))}catch(t){e(t)}}function a(t){var e;t.done?n(t.value):((e=t.value)instanceof u?e:new u(function(t){t(e)})).then(i,o)}a((c=c.apply(t,r||[])).next())})};function indexRoute(t){return __awaiter(this,void 0,void 0,function*(){t.get("/",(t,e)=>__awaiter(this,void 0,void 0,function*(){return{data:"fastify ready"}}))})}Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=indexRoute;
 //# sourceMappingURL=index.js.map

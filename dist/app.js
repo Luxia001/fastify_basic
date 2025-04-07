@@ -1,11 +1,2 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const fastify_1 = __importDefault(require("fastify"));
-const router_1 = __importDefault(require("./router"));
-const app = (0, fastify_1.default)({ logger: { level: "info" } });
-app.register(router_1.default);
-exports.default = app;
+var __importDefault=this&&this.__importDefault||function(e){return e&&e.__esModule?e:{default:e}};Object.defineProperty(exports,"__esModule",{value:!0});let fastify_1=__importDefault(require("fastify")),router_1=__importDefault(require("./router")),cors_1=__importDefault(require("@fastify/cors")),formbody_1=__importDefault(require("@fastify/formbody")),dotenv_1=__importDefault(require("dotenv")),db_conect_1=__importDefault(require("./plugins/db_conect")),jwt_1=__importDefault(require("./plugins/jwt")),multer=require("fastify-multer"),app=(dotenv_1.default.config(),(0,fastify_1.default)({logger:{level:"info"}}));app.register(cors_1.default,{origin:"*"}),app.register(db_conect_1.default),app.register(multer.contentParser),app.register(jwt_1.default),app.register(formbody_1.default),app.register(router_1.default),app.register(require("./plugins/ws")),app.register(require("./plugins/io"),{}),exports.default=app;
 //# sourceMappingURL=app.js.map
