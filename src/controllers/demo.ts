@@ -36,4 +36,13 @@ export default async function demoRoute(fastify: FastifyInstance) {
       return { data: { id: id }, message: "deleted" };
     }
   );
+
+  fastify.get(
+    "/views/demo.ejs",
+    {},
+    async (request: FastifyRequest, reply: FastifyReply) => {
+      const name = "API EJS";
+      reply.view("/views/demo.ejs", { name });
+    }
+  );
 }

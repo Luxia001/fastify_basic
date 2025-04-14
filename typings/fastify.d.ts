@@ -1,4 +1,4 @@
-import { FastifyInstance } from "fastify";
+import { FastifyInstance, FastifyReply } from "fastify";
 
 declare module "fastify" {
   export interface FastifyInstance {
@@ -15,5 +15,9 @@ declare module "fastify" {
   export interface FastifyRequest {
     file: any;
     files: any[];
+  }
+
+  interface FastifyReply {
+    view: any;
   }
 }
